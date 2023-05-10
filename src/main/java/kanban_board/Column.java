@@ -1,3 +1,5 @@
+package kanban_board;
+
 import java.util.List;
 
 public class Column {
@@ -17,7 +19,9 @@ public class Column {
     }
     public void moveCardToColumn(Card card, Column destinationColumn) {}
     // returns number of cards present in the column
-    public int getCardCount() {}
+    public int getCardCount() {
+        return 0;
+    }
     public void isColumnEmpty() {}
     // checks if a specific card is present in the column
     public void hasCard(Card card) {}

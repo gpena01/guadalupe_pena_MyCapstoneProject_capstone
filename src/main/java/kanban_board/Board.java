@@ -20,11 +20,13 @@ public class Board {
     public void removeColumn(Column column) {
         columns.remove(column);
     }
-    public int getColumnCount() {}
+    public int getColumnCount() {
+        return 0;
+    }
     // returns the column at a specified index in the columns collection
-    public int getColumn(int index) {}
-    public
-
+    public int getColumn(int index) {
+        return index;
+    }
     public String getBoardTitle() {
         return boardTitle;
     }

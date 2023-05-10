@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.perscholas</groupId>
-	<artifactId>guadalupe_pena_MyCapstoneProject_capstone</artifactId>
+	<artifactId>guadalupe_pena_kanbanboard_capstone</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>guadalupe_pena_MyCapstoneProject_capstone</name>
 	<description>This is my kanban_board project</description>
