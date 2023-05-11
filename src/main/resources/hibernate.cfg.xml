@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Drop and re-create the database on startup -->
+        <property name="hibernate.hbm2ddl.auto"> update </property>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:mem:test</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+        <!-- MySQL DB dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <!-- print all executed SQL on console -->
+        <property name="hibernate.show_sql" >true </property>
+        <property name="hibernate.format_sql" >true </property>
+        <!-- Mapping entity file -->
+<!--        <mapping class="com.test.hib.model.User"/>-->
+<!--        <mapping class="com.perscholas.model.Department"/>-->
+<!--        <mapping class="com.perscholas.model.Teacher"/>-->
+<!--        <mapping class="com.perscholas.model.Person"/>-->
+<!--        <mapping class="com.perscholas.model.Address"/>-->
+<!--        <mapping class="com.perscholas.model2.Cohort"/>-->
+<!--        <mapping class="com.perscholas.model2.Teacher2"/>-->
+
+
+    </session-factory>
+</hibernate-configuration>
