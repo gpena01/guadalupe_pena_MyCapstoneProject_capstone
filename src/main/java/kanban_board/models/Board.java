@@ -1,31 +1,27 @@
-package kanban_board;
+package kanban_board.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 @Entity
-@Table
 public class Board implements Serializable {
 
     // create fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int boardId;
+    private long boardId;
     private String boardTitle;
     // a collection to store the columns present in the board
     @OneToMany(cascade = CascadeType.ALL)
     private List<Column> columns;
 
     // create constructor(s)
-
-    public Board(int boardId, String boardTitle, List<Column> columns) {
+    public Board(long boardId, String boardTitle, List<Column> columns) {
         super();
         this.boardId = boardId;
         this.boardTitle = boardTitle;
         this.columns = columns;
     }
-
     public Board() {
     }
 
@@ -39,11 +35,16 @@ public class Board implements Serializable {
         columns.remove(column);
     }
     public int getColumnCount() {
-        return 0;
+        return columns.size();
     }
     // returns the column at a specified index in the columns collection
-    public int getColumn(int index) {
-        return index;
+    public Column getColumn(int index) {
+
+        if(index >= 0 && index < columns.size()) {
+            return columns.get(index);
+        } else {
+            return null;
+        }
     }
     public String getBoardTitle() {
         return boardTitle;
@@ -61,11 +62,11 @@ public class Board implements Serializable {
         this.columns = columns;
     }
 
-    public int getBoardId() {
+    public long getBoardId() {
         return boardId;
     }
 
-    public void setBoardId(int boardId) {
+    public void setBoardId(long boardId) {
         this.boardId = boardId;
     }
 }

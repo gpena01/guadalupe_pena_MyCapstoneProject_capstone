@@ -18,13 +18,5 @@
         <property name="hibernate.format_sql" >true </property>
         <!-- Mapping entity file -->
 <!--        <mapping class="com.test.hib.model.User"/>-->
-<!--        <mapping class="com.perscholas.model.Department"/>-->
-<!--        <mapping class="com.perscholas.model.Teacher"/>-->
-<!--        <mapping class="com.perscholas.model.Person"/>-->
-<!--        <mapping class="com.perscholas.model.Address"/>-->
-<!--        <mapping class="com.perscholas.model2.Cohort"/>-->
-<!--        <mapping class="com.perscholas.model2.Teacher2"/>-->
-
-
     </session-factory>
 </hibernate-configuration>

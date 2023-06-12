@@ -1,4 +1,4 @@
-package kanban_board;
+package kanban_board.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,15 +9,16 @@ public class Column implements Serializable {
     // create fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int columnId;
+    private long columnId;
     private String columnName;
     // stores cards present in the column
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Card> cards;
     @ManyToOne
     private Board board;
     // create constructor(s)
 
-    public Column(int columnId, String columnName, List<Card> cards) {
+    public Column(long columnId, String columnName, List<Card> cards) {
         super();
         this.columnId = columnId;
         this.columnName = columnName;
@@ -34,7 +35,14 @@ public class Column implements Serializable {
     public void removeCard(Card card) {
         cards.remove(card);
     }
-    public void moveCardToColumn(Card card, Column destinationColumn) {}
+    public void moveCardToColumn(Card card, Column destinationColumn) {
+        // Remove the card from the current column
+        this.cards.remove(card);
+        // Add the card to the destination column
+        destinationColumn.cards.add(card);
+        // Update the card's column reference
+        card.setColumn(destinationColumn);
+    }
     // returns number of cards present in the column
     public int getCardCount() {
         return 0;
@@ -59,11 +67,11 @@ public class Column implements Serializable {
         this.board = board;
     }
 
-    public int getColumnId() {
+    public long getColumnId() {
         return columnId;
     }
 
-    public void setColumnId(int columnId) {
+    public void setColumnId(long columnId) {
         this.columnId = columnId;
     }
 
@@ -74,4 +82,5 @@ public class Column implements Serializable {
     public void setColumnName(String columnName) {
         this.columnName = columnName;
     }
+
 }

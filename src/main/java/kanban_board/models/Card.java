@@ -1,10 +1,9 @@
-package kanban_board;
+package kanban_board.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 @Entity
 public class Card implements Serializable {
     // create fields
@@ -20,6 +19,8 @@ public class Card implements Serializable {
     // a string status to indicate the current status or stage of the card ("To Do", "In Progress",
     // "Done")
     private String status;
+    @ManyToOne
+    private Column column;
 
     // create constructor(s)
     public Card(int cardId, String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
@@ -84,5 +85,9 @@ public class Card implements Serializable {
     }
     public void setCardId(int cardId) {
         this.cardId = cardId;
+    }
+
+    public void setColumn(Column destinationColumn) {
+
     }
 }
