@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ColumnRepository extends JpaRepository<Column, Long> {
-    Column findByName(String columnName);
-
-    List<Column> findByBoardId(Long boardId);
+    Column findByColumnName(String columnName);
 }

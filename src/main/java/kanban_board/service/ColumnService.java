@@ -42,7 +42,9 @@ public class ColumnService {
         return columnRepository.save(column);
     }
 
+
     public Column createColumn(Column column) {
-        return column;
+        Column createdColumn = columnRepository.save(column);
+        return createdColumn;
     }
 }

@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
-    Board findByName(String boardTitle);
+    Board findByBoardTitle(String boardTitle);
 }

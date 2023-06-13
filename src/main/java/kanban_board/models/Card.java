@@ -9,7 +9,7 @@ public class Card implements Serializable {
     // create fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cardId;
+    private long cardId;
     private String cardTitle;
     private String description;
     private String assignee;
@@ -23,7 +23,7 @@ public class Card implements Serializable {
     private Column column;
 
     // create constructor(s)
-    public Card(int cardId, String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
+    public Card(long cardId, String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
         super();
         this.cardId = cardId;
         this.cardTitle = cardTitle;
@@ -80,7 +80,7 @@ public class Card implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    public int getCardId() {
+    public long getCardId() {
         return cardId;
     }
     public void setCardId(int cardId) {

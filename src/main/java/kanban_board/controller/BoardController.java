@@ -24,7 +24,7 @@ public class BoardController {
         return new ResponseEntity<>(createdBoard, HttpStatus.CREATED);
     }
     @GetMapping("/{boardId}")
-    public ResponseEntity<Board> getBoardById(@PathVariable Long boardId) {
+    public ResponseEntity<Board> getBoardById(@PathVariable long boardId) {
         Board board = boardService.getBoardById(boardId);
         return ResponseEntity.ok(board);
     }
@@ -34,7 +34,7 @@ public class BoardController {
         return ResponseEntity.ok(boards);
     }
     @PutMapping("/{boardId}")
-    public ResponseEntity<Board> updateBoard(@PathVariable Long boardId, @RequestBody Board updatedBoard) {
+    public ResponseEntity<Board> updateBoard(@PathVariable long boardId, @RequestBody Board updatedBoard) {
         Board board = boardService.getBoardById(boardId);
         board.setBoardTitle(updatedBoard.getBoardTitle());
 
@@ -42,7 +42,7 @@ public class BoardController {
         return ResponseEntity.ok(updatedBoard1);
     }
     @DeleteMapping("/{boardId}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable Long boardId) {
+    public ResponseEntity<Void> deleteBoard(@PathVariable long boardId) {
         boardService.deleteBoard(boardId);
         return ResponseEntity.noContent().build();
     }

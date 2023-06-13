@@ -21,11 +21,11 @@ public class BoardService {
         existingBoard.setBoardTitle(updatedBoard.getBoardTitle());
         return boardRepository.save(existingBoard);
     }
-    public Board getBoardById(Long boardId) {
+    public Board getBoardById(long boardId) {
         return boardRepository.findById(boardId)
                 .orElseThrow(() -> new IllegalArgumentException("Board not found"));
     }
-    public void deleteBoard(Long boardId) {
+    public void deleteBoard(long boardId) {
         boardRepository.deleteById(boardId);
     }
 
