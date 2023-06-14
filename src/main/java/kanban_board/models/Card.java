@@ -19,13 +19,12 @@ public class Card implements Serializable {
     // a string status to indicate the current status or stage of the card ("To Do", "In Progress",
     // "Done")
     private String status;
-    @ManyToOne
-    private Column column;
+//    @ManyToOne
+//    private Column column;
 
     // create constructor(s)
-    public Card(long cardId, String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
+    public Card(String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
         super();
-        this.cardId = cardId;
         this.cardTitle = cardTitle;
         this.description = description;
         this.assignee = assignee;
@@ -85,9 +84,5 @@ public class Card implements Serializable {
     }
     public void setCardId(int cardId) {
         this.cardId = cardId;
-    }
-
-    public void setColumn(Column destinationColumn) {
-
     }
 }

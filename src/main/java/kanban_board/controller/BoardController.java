@@ -5,20 +5,20 @@ import kanban_board.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 // Controller class handles incoming http requests
-@RestController
-@RequestMapping("/boards")
+@Controller
 public class BoardController {
     private final BoardService boardService;
 
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
     }
-    @PostMapping
+    @PostMapping("/createBoard")
     public ResponseEntity<Board> createBoard(@RequestBody Board board) {
         Board createdBoard = boardService.saveBoard(board);
         return new ResponseEntity<>(createdBoard, HttpStatus.CREATED);
@@ -45,5 +45,9 @@ public class BoardController {
     public ResponseEntity<Void> deleteBoard(@PathVariable long boardId) {
         boardService.deleteBoard(boardId);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/")
+    public String showHome(Model model) {
+        return "home";
     }
 }

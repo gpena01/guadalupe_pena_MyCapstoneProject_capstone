@@ -15,7 +15,7 @@ public class ColumnController {
     public ColumnController(ColumnService columnService) {
         this.columnService = columnService;
     }
-    @PostMapping
+    @PostMapping("/createColumn")
     public ResponseEntity<Column> createColumn(@RequestBody Column column) {
         Column createdColumn = columnService.createColumn(column);
         return ResponseEntity.ok(createdColumn);

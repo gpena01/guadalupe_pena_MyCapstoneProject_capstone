@@ -14,13 +14,12 @@ public class Column implements Serializable {
     // stores cards present in the column
     @OneToMany(cascade = CascadeType.ALL)
     private List<Card> cards;
-    @ManyToOne
-    private Board board;
+//    @ManyToOne
+//    private Board board;
     // create constructor(s)
 
-    public Column(long columnId, String columnName, List<Card> cards) {
+    public Column(String columnName, List<Card> cards) {
         super();
-        this.columnId = columnId;
         this.columnName = columnName;
         this.cards = cards;
     }
@@ -35,14 +34,14 @@ public class Column implements Serializable {
     public void removeCard(Card card) {
         cards.remove(card);
     }
-    public void moveCardToColumn(Card card, Column destinationColumn) {
-        // Remove the card from the current column
-        this.cards.remove(card);
-        // Add the card to the destination column
-        destinationColumn.cards.add(card);
-        // Update the card's column reference
-        card.setColumn(destinationColumn);
-    }
+//    public void moveCardToColumn(Card card, Column destinationColumn) {
+//        // Remove the card from the current column
+//        this.cards.remove(card);
+//        // Add the card to the destination column
+//        destinationColumn.cards.add(card);
+//        // Update the card's column reference
+//        card.setColumn(destinationColumn);
+//    }
     // returns number of cards present in the column
     public int getCardCount() {
         return 0;
@@ -60,12 +59,12 @@ public class Column implements Serializable {
     public void setCards(List<Card> cards) {
         this.cards = cards;
     }
-    public Board getBoard() {
-        return board;
-    }
-    public void setBoard(Board board) {
-        this.board = board;
-    }
+//    public Board getBoard() {
+//        return board;
+//    }
+//    public void setBoard(Board board) {
+//        this.board = board;
+//    }
 
     public long getColumnId() {
         return columnId;

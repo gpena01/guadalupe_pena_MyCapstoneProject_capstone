@@ -10,28 +10,18 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css" />
+  <script src="drag.js" defer></script>
+  <script src="todo.js" defer></script>
   <title>KanBan Home</title>
 </head>
 
 <body>
-<!-- Navbar -->
-  <nav>
-    <div class="container">
-      <h4>KanBan Board</h4>
-      <div>
-        <ul>
-          <li>
-            <a th:href="@{login}">Login</a>
-          </li>
-          <li>
-            <a th:href="@{about}">About</a>
-          </li>
-          <li>
-            <a th:href="@{contact}">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+<!-- KanBan Board -->
+<h1>Kanban Board</h1>
+<div class="board">
+
+</div>
+
 </body>
 </html>
