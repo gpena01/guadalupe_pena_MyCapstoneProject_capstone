@@ -46,8 +46,4 @@ public class BoardController {
         boardService.deleteBoard(boardId);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("/")
-    public String showHome(Model model) {
-        return "home";
-    }
 }

@@ -16,36 +16,15 @@ public class Board implements Serializable {
 //    private List<Column> columns;
 
     // create constructor(s)
-    public Board(long boardId, String boardTitle, List<Column> columns) {
+    public Board() {
+    }
+    public Board(String boardTitle, List<Column> columns) {
         super();
-        this.boardId = boardId;
         this.boardTitle = boardTitle;
 //        this.columns = columns;
     }
-    public Board() {
-    }
 
-    // create methods
-    public String toString() { return null; }
-    // adds a column to the board by appending it to the columns collection
-//    public void addColumn(Column column) {
-//        columns.add(column);
-//    }
-//    public void removeColumn(Column column) {
-//        columns.remove(column);
-//    }
-//    public int getColumnCount() {
-//        return columns.size();
-//    }
-//    // returns the column at a specified index in the columns collection
-//    public Column getColumn(int index) {
-//
-//        if(index >= 0 && index < columns.size()) {
-//            return columns.get(index);
-//        } else {
-//            return null;
-//        }
-//    }
+    // create getters and setters
     public String getBoardTitle() {
         return boardTitle;
     }
@@ -64,9 +43,5 @@ public class Board implements Serializable {
 
     public long getBoardId() {
         return boardId;
-    }
-
-    public void setBoardId(long boardId) {
-        this.boardId = boardId;
     }
 }

@@ -10,43 +10,27 @@ public class Card implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long cardId;
-    private String cardTitle;
+    private String assignTo;
     private String description;
-    private String assignee;
     private Date dueDate;
-    // an integer that represents the priority level of the card 1 being highest
-    private int priority;
-    // a string status to indicate the current status or stage of the card ("To Do", "In Progress",
-    // "Done")
-    private String status;
+
 //    @ManyToOne
 //    private Column column;
 
     // create constructor(s)
-    public Card(String cardTitle, String description, String assignee, Date dueDate, int priority, String status) {
+    public Card(String assignTo, String description, Date dueDate) {
         super();
-        this.cardTitle = cardTitle;
+        this.assignTo = assignTo;
         this.description = description;
-        this.assignee = assignee;
         this.dueDate = dueDate;
-        this.priority = priority;
-        this.status = status;
     }
 
-    // create methods
-    public void moveToNextStatus() {}
-    public void moveToPreviousStatus() {}
-    public void updateStatus(String newStatus) {}
-    // checks if the card's due date has passed
-    public void isOverdue() {}
-    // Override the toString() method to provide a string representation of the card's attributes
-    @Override
-    public String toString() { return null; }
-    public String getCardTitle() {
-        return cardTitle;
+    // create getters and setters
+    public String getAssignTo() {
+        return assignTo;
     }
-    public void setCardTitle(String cardTitle) {
-        this.cardTitle = cardTitle;
+    public void setAssignTo(String assignTo) {
+        this.assignTo = assignTo;
     }
     public String getDescription() {
         return description;
@@ -54,30 +38,11 @@ public class Card implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getAssignee() {
-        return assignee;
-    }
-    public void setAssignee(String assignee) {
-        this.assignee = assignee;
-    }
     public Date getDueDate() {
         return dueDate;
     }
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
-    }
-    public int getPriority() {
-        return priority;
-    }
-    // sets the priority level of the card
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
     }
     public long getCardId() {
         return cardId;
