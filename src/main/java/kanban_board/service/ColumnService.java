@@ -1,11 +1,8 @@
 package kanban_board.service;
 
-import kanban_board.models.Board;
-import kanban_board.models.Column;
-import kanban_board.repository.BoardRepository;
+import kanban_board.models.BoardColumn;
 import kanban_board.repository.ColumnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,33 +15,33 @@ public class ColumnService {
     public ColumnService(ColumnRepository columnRepository) {
         this.columnRepository = columnRepository;
     }
-    public Column saveColumn(Column column) {
+    public BoardColumn saveColumn(BoardColumn column) {
         return columnRepository.save(column);
     }
-    public List<Column> getAllColumns() {
+    public List<BoardColumn> getAllColumns() {
         return columnRepository.findAll();
     }
-    public Column getColumnById(long columnId) {
-        Optional<Column> optionalColumn = columnRepository.findById(columnId);
+    public BoardColumn getColumnById(long columnId) {
+        Optional<BoardColumn> optionalColumn = columnRepository.findById(columnId);
         if (optionalColumn.isPresent()) {
-            Column column = optionalColumn.get();
+            BoardColumn column = optionalColumn.get();
             return column;
         }
         throw new ColumnNotFoundException("Column not found with id: " + columnId);
     }
     public void deleteColumn(long columnId) {
-        Column column = getColumnById(columnId);
+        BoardColumn column = getColumnById(columnId);
         columnRepository.delete(column);
     }
-    public Column updateColumn(long columnId, String newColumnName) {
-        Column column = getColumnById(columnId);
+    public BoardColumn updateColumn(long columnId, String newColumnName) {
+        BoardColumn column = getColumnById(columnId);
         column.setColumnName(newColumnName);
         return columnRepository.save(column);
     }
 
 
-    public Column createColumn(Column column) {
-        Column createdColumn = columnRepository.save(column);
+    public BoardColumn createColumn(BoardColumn column) {
+        BoardColumn createdColumn = columnRepository.save(column);
         return createdColumn;
     }
 }

@@ -5,11 +5,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Card implements Serializable {
+public class Task implements Serializable {
     // create fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long cardId;
+    private long taskId;
     private String assignTo;
     private String description;
     private Date dueDate;
@@ -18,7 +18,7 @@ public class Card implements Serializable {
 //    private Column column;
 
     // create constructor(s)
-    public Card(String assignTo, String description, Date dueDate) {
+    public Task(String assignTo, String description, Date dueDate) {
         super();
         this.assignTo = assignTo;
         this.description = description;
@@ -44,10 +44,10 @@ public class Card implements Serializable {
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
-    public long getCardId() {
-        return cardId;
+    public long getTaskId() {
+        return taskId;
     }
-    public void setCardId(int cardId) {
-        this.cardId = cardId;
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 }

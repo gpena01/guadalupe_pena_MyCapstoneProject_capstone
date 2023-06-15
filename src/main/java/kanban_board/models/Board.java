@@ -18,7 +18,7 @@ public class Board implements Serializable {
     // create constructor(s)
     public Board() {
     }
-    public Board(String boardTitle, List<Column> columns) {
+    public Board(String boardTitle, List<BoardColumn> columns) {
         super();
         this.boardTitle = boardTitle;
 //        this.columns = columns;

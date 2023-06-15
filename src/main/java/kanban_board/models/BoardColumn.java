@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Column implements Serializable {
+public class BoardColumn implements Serializable {
 
     // create fields
     @Id
@@ -14,27 +14,27 @@ public class Column implements Serializable {
     private String columnName;
     // stores cards present in the column.
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Card> cards;
+    private List<Task> tasks;
 
     //    @ManyToOne
 //    private Board board;
     // create constructor(s)
-    public Column() {
+    public BoardColumn() {
     }
 
-    public Column(String columnName, List<Card> cards) {
+    public BoardColumn(String columnName, List<Task> tasks) {
         super();
         this.columnName = columnName;
-        this.cards = cards;
+        this.tasks = tasks;
     }
 
     // create getters and setters
-    public List<Card> getCards() {
-        return cards;
+    public List<Task> getTasks() {
+        return tasks;
     }
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     public long getColumnId() {

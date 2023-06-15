@@ -1,10 +1,9 @@
 package kanban_board.controller;
 
-import kanban_board.models.Column;
+import kanban_board.models.BoardColumn;
 import kanban_board.service.ColumnService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,18 +15,18 @@ public class ColumnController {
         this.columnService = columnService;
     }
     @PostMapping("/createColumn")
-    public ResponseEntity<Column> createColumn(@RequestBody Column column) {
-        Column createdColumn = columnService.createColumn(column);
+    public ResponseEntity<BoardColumn> createColumn(@RequestBody BoardColumn column) {
+        BoardColumn createdColumn = columnService.createColumn(column);
         return ResponseEntity.ok(createdColumn);
     }
     @GetMapping("/{columnId}")
-    public ResponseEntity<Column> getColumn(@PathVariable long columnId) {
-        Column column = columnService.getColumnById(columnId);
+    public ResponseEntity<BoardColumn> getColumn(@PathVariable long columnId) {
+        BoardColumn column = columnService.getColumnById(columnId);
         return ResponseEntity.ok(column);
     }
     @PutMapping("/{columnId}")
-    public ResponseEntity<Column> updateColumn(@PathVariable long columnId, @RequestBody Column updatedColumn) {
-        Column column = columnService.updateColumn(columnId, updatedColumn.getColumnName());
+    public ResponseEntity<BoardColumn> updateColumn(@PathVariable long columnId, @RequestBody BoardColumn updatedColumn) {
+        BoardColumn column = columnService.updateColumn(columnId, updatedColumn.getColumnName());
         return ResponseEntity.ok(column);
     }
     @DeleteMapping("/{columnId}")
