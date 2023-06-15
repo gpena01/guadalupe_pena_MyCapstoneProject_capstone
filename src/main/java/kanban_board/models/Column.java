@@ -12,7 +12,7 @@ public class Column implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long columnId;
     private String columnName;
-    // stores cards present in the column
+    // stores cards present in the column.
     @OneToMany(cascade = CascadeType.ALL)
     private List<Card> cards;
 
