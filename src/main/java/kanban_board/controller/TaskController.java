@@ -15,10 +15,10 @@ public class TaskController {
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
-    @PostMapping
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+    @GetMapping("/newTask")
+    public String createTask(Task task) {
         Task createdTask = taskService.createTask(task);
-        return ResponseEntity.ok(createdTask);
+        return "home";
     }
     @GetMapping("/{taskId}")
     public ResponseEntity<Task> getTaskById(@PathVariable long taskId) {

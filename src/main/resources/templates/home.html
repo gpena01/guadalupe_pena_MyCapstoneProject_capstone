@@ -20,7 +20,27 @@
 <!-- KanBan Board -->
 <h1>Kanban Board</h1>
 <div class="board">
+  <form id="todo-form">
+    <input type="text" placeholder="New TODO..." id="todo-input" />
+    <button th:href="@{newTask}" type="submit">+ Task</button>
+  </form>
 
+  <div class="lanes">
+    <div class="swim-lane" id="todo-lane">
+      <h3 class="heading">TODO</h3>
+
+      <p class="task" draggable="true">Walk dogs</p>
+      <p class="task" draggable="true">Buy milk</p>
+    </div>
+
+    <div class="swim-lane">
+      <h3 class="heading">IN PROGRESS</h3>
+    </div>
+
+    <div class="swim-lane">
+      <h3 class="heading">DONE</h3>
+    </div>
+  </div>
 </div>
 
 </body>
