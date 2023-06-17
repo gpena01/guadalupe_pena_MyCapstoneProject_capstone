@@ -5,6 +5,8 @@ import kanban_board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class BoardService {
     private final BoardRepository boardRepository;
@@ -22,8 +24,12 @@ public class BoardService {
         return boardRepository.save(existingBoard);
     }
     public Board getBoardById(long boardId) {
-        return boardRepository.findById(boardId)
-                .orElseThrow(() -> new IllegalArgumentException("Board not found"));
+        Optional<Board> optionalBoard = boardRepository.findById(boardId);
+        if (optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            return board;
+        }
+        throw new BoardNotFoundException();
     }
     public void deleteBoard(long boardId) {
         boardRepository.deleteById(boardId);

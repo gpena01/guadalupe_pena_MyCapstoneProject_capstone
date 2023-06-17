@@ -10,32 +10,18 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/style.css" />
-
-  <title>KanBan Home</title>
+  <title>Task</title>
 </head>
 
 <body>
-
-<!-- KanBan Board -->
-<h1 type="text" th:field="*{boardTitle}" class="container mt-3 text-center">Kanban Board</h1>
-<div class="board container mt-3 text-center">
-  <div class="lanes">
-    <div class="swim-lane" id="todo-lane">
-      <h3 class="heading">TODO</h3>
-
-      <p class="task" draggable="true">Walk dogs</p>
-      <p class="task" draggable="true">Buy milk</p>
-    </div>
-
-    <div class="swim-lane">
-      <h3 class="heading">IN PROGRESS</h3>
-    </div>
-
-    <div class="swim-lane">
-      <h3 class="heading">DONE</h3>
-    </div>
-  </div>
+<div class="container">
+  <h4>New Task</h4>
+  <form th:action="@{/saveTask}" th:object="${task}" method="POST">
+    <textarea name="description" rows="5" cols="45" th:field="*{description}" placeholder="Description"></textarea>
+    <br>
+    <input type="text" th:field="*{assignTo}" placeholder="Assign To...">
+    <button type="submit">Save</button>
+  </form>
 </div>
-
 </body>
 </html>

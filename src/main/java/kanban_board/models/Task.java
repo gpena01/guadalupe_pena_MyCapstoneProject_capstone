@@ -12,17 +12,19 @@ public class Task implements Serializable {
     private long taskId;
     private String assignTo;
     private String description;
-    private Date dueDate;
 
 //    @ManyToOne
 //    private Column column;
 
     // create constructor(s)
-    public Task(String assignTo, String description, Date dueDate) {
+    public Task(String assignTo, String description) {
         super();
         this.assignTo = assignTo;
         this.description = description;
-        this.dueDate = dueDate;
+    }
+
+    public Task() {
+
     }
 
     // create getters and setters
@@ -37,12 +39,6 @@ public class Task implements Serializable {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-    public Date getDueDate() {
-        return dueDate;
-    }
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
     }
     public long getTaskId() {
         return taskId;
