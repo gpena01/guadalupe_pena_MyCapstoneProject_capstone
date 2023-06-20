@@ -12,6 +12,7 @@ public class Task implements Serializable {
     private long taskId;
     private String assignTo;
     private String description;
+    private Date lastUpdated;
 
 //    @ManyToOne
 //    private Column column;
@@ -45,5 +46,13 @@ public class Task implements Serializable {
     }
     public void setTaskId(int taskId) {
         this.taskId = taskId;
+    }
+
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 }

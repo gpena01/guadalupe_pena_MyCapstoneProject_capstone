@@ -29,16 +29,14 @@ public class ColumnService {
         }
         throw new ColumnNotFoundException("Column not found with id: " + columnId);
     }
-    public void deleteColumn(long columnId) {
-        BoardColumn column = getColumnById(columnId);
-        columnRepository.delete(column);
+    public void deleteColumnById(long columnId) {
+        columnRepository.deleteById(columnId);
     }
     public BoardColumn updateColumn(long columnId, String newColumnName) {
         BoardColumn column = getColumnById(columnId);
         column.setColumnName(newColumnName);
         return columnRepository.save(column);
     }
-
 
     public BoardColumn createColumn(BoardColumn column) {
         BoardColumn createdColumn = columnRepository.save(column);
