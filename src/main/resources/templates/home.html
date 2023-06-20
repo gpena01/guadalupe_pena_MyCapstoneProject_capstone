@@ -10,6 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/style.css" />
+  <script src="drag.js" defer></script>
+  <script src="todo.js" defer></script>
 
   <title>KanBan Home</title>
 </head>
@@ -17,40 +19,30 @@
 <body>
 
 <!-- Default KanBan Board -->
-<!--<div class="board container mt-3 text-center">-->
-<!--  <input class="text-center" type="text" value="Kanban Board">-->
-<!--  <div class="lanes">-->
-<!--    <div class="swim-lane" id="todo-lane">-->
-<!--      <input class="heading" type="text" value="TODO">-->
+<h1 class="container mt-3">Kanban Board</h1>
+<div class="board container mt-3">
+  <form id="todo-form">
+    <input type="text" placeholder="New TODO..." id="todo-input" />
+    <button type="submit">+ Add Task</button>
+  </form>
 
-<!--      <input class="task" draggable="true" type="text">-->
-<!--      <input class="task" draggable="true" type="text">-->
-<!--    </div>-->
+  <div class="lanes">
+    <div class="swim-lane" id="todo-lane">
+      <h3 class="heading" onclick="editHeading(this)">TODO</h3>
 
-<!--    <div class="swim-lane">-->
-<!--      <input class="heading" type="text" value="IN PROGRESS">-->
-<!--    </div>-->
+      <p class="task" draggable="true" onclick="editTask(this)">Walk dogs</p>
+      <p class="task" draggable="true" onclick="editTask(this)">Buy milk</p>
+    </div>
 
-<!--    <div class="swim-lane">-->
-<!--      <input class="heading" type="text" value="DONE">-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+    <div class="swim-lane">
+      <h3 class="heading">IN PROGRESS</h3>
+    </div>
 
-<!-- Create Kanban Board -->
-<div class="board container">
-  <h1>Kanban Board</h1>
-  <div class="column">
-    <h3>TODO</h3>
-    <p>Walk the dog</p>
+    <div class="swim-lane">
+      <h3 class="heading">DONE</h3>
+    </div>
   </div>
 </div>
-
-<!-- Update Kanban Board Title -->
-
-<!-- Update column title -->
-
-<!-- Update card -->
 
 </body>
 </html>
