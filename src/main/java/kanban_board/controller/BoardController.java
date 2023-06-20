@@ -2,10 +2,12 @@ package kanban_board.controller;
 
 import kanban_board.models.Board;
 import kanban_board.service.BoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,36 +16,47 @@ import java.util.List;
 @Controller
 public class BoardController {
     private final BoardService boardService;
-
+    @Autowired
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
     }
-    @PostMapping("/createBoard")
-    public ResponseEntity<Board> createBoard(@RequestBody Board board) {
-        Board createdBoard = boardService.saveBoard(board);
-        return new ResponseEntity<>(createdBoard, HttpStatus.CREATED);
+    @GetMapping("/listBoards")
+    public String getAllBoards(Model model) {
+        model.addAttribute("listBoards", boardService.getAllBoards());
+        return "home";
     }
-    @GetMapping("/{boardId}")
-    public ResponseEntity<Board> getBoardById(@PathVariable long boardId) {
-        Board board = boardService.getBoardById(boardId);
-        return ResponseEntity.ok(board);
+    @GetMapping("/updateBoardTitle/{boardId}")
+    public String updateBoardTitle(@PathVariable long boardId, Model model) {
+        // update boardTitle
+        Board board= boardService.getBoardById(boardId);
+        model.addAttribute("board", board);
+        return "home";
     }
-    @GetMapping
-    public ResponseEntity<List<Board>> getAllBoards() {
-        List<Board> boards = boardService.getAllBoards();
-        return ResponseEntity.ok(boards);
+    @GetMapping("/createNewBoard")
+    public String createNewBoard(Model model) {
+        // create a new board
+        Board board = new Board();
+        model.addAttribute("board", board);
+        return "home";
     }
-    @PutMapping("/{boardId}")
-    public ResponseEntity<Board> updateBoard(@PathVariable long boardId, @RequestBody Board updatedBoard) {
-        Board board = boardService.getBoardById(boardId);
-        board.setBoardTitle(updatedBoard.getBoardTitle());
-
-        Board updatedBoard1 = boardService.updateBoard(board);
-        return ResponseEntity.ok(updatedBoard1);
+    @PostMapping("/saveBoard")
+    public String saveBoard(@ModelAttribute("board") Board board, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "home";
+        }
+        // save board to database
+        boardService.saveBoard(board);
+        return "redirect:/";
     }
-    @DeleteMapping("/{boardId}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable long boardId) {
-        boardService.deleteBoard(boardId);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/deleteBoard/{boardId}")
+    public String deleteBoard(@PathVariable long boardId) {
+        this.boardService.deleteBoardById(boardId);
+        return "redirect:/";
     }
+    @GetMapping("/")
+    public String home() { return "home"; }
+    @GetMapping("/login")
+    public String login() { return "login"; }
+    @GetMapping("/signup")
+    public String signup() { return "signup"; }
 }
