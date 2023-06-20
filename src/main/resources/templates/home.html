@@ -16,26 +16,41 @@
 
 <body>
 
-<!-- KanBan Board -->
-<h1 type="text" th:field="*{boardTitle}" class="container mt-3 text-center">Kanban Board</h1>
-<div class="board container mt-3 text-center">
-  <div class="lanes">
-    <div class="swim-lane" id="todo-lane">
-      <h3 class="heading">TODO</h3>
+<!-- Default KanBan Board -->
+<!--<div class="board container mt-3 text-center">-->
+<!--  <input class="text-center" type="text" value="Kanban Board">-->
+<!--  <div class="lanes">-->
+<!--    <div class="swim-lane" id="todo-lane">-->
+<!--      <input class="heading" type="text" value="TODO">-->
 
-      <p class="task" draggable="true">Walk dogs</p>
-      <p class="task" draggable="true">Buy milk</p>
-    </div>
+<!--      <input class="task" draggable="true" type="text">-->
+<!--      <input class="task" draggable="true" type="text">-->
+<!--    </div>-->
 
-    <div class="swim-lane">
-      <h3 class="heading">IN PROGRESS</h3>
-    </div>
+<!--    <div class="swim-lane">-->
+<!--      <input class="heading" type="text" value="IN PROGRESS">-->
+<!--    </div>-->
 
-    <div class="swim-lane">
-      <h3 class="heading">DONE</h3>
-    </div>
+<!--    <div class="swim-lane">-->
+<!--      <input class="heading" type="text" value="DONE">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- Create Kanban Board -->
+<div class="board container">
+  <h1>Kanban Board</h1>
+  <div class="column">
+    <h3>TODO</h3>
+    <p>Walk the dog</p>
   </div>
 </div>
+
+<!-- Update Kanban Board Title -->
+
+<!-- Update column title -->
+
+<!-- Update card -->
 
 </body>
 </html>

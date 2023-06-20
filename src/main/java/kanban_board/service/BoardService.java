@@ -14,14 +14,8 @@ public class BoardService {
     public BoardService(BoardRepository boardRepository) {
         this.boardRepository = boardRepository;
     }
-    public Board saveBoard(Board board) {
-        return boardRepository.save(board);
-    }
-    public Board updateBoard(Board updatedBoard) {
-        Board existingBoard = boardRepository.findById(updatedBoard.getBoardId())
-                .orElseThrow(() -> new IllegalArgumentException("Board not found"));
-        existingBoard.setBoardTitle(updatedBoard.getBoardTitle());
-        return boardRepository.save(existingBoard);
+    public void saveBoard(Board board) {
+        boardRepository.save(board);
     }
     public Board getBoardById(long boardId) {
         Optional<Board> optionalBoard = boardRepository.findById(boardId);
@@ -31,7 +25,7 @@ public class BoardService {
         }
         throw new BoardNotFoundException();
     }
-    public void deleteBoard(long boardId) {
+    public void deleteBoardById(long boardId) {
         boardRepository.deleteById(boardId);
     }
 
