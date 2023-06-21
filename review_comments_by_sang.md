@@ -4,3 +4,7 @@
 - BoardService and ColumnService could be 
   reimplemented as interface and implementation
   combination, however
+
+## June 21
+
+- Nice progress
