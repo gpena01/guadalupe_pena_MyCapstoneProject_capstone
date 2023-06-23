@@ -49,10 +49,13 @@
 
   <div class="lanes">
     <div class="swim-lane" id="todo-lane">
-      <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
-      <form id="todo-form">
-        <button type="submit" class="btn">&#65291;</button>
-      </form>
+      <div class="lane-header">
+        <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
+        <form id="todo-form">
+          <button type="submit" class="btn">&#65291;</button>
+        </form>
+      </div>
+      <div class="task-list"></div>
     </div>
 
     <div class="swim-lane">

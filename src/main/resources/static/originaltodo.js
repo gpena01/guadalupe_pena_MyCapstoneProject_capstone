@@ -7,7 +7,7 @@ form.addEventListener("submit", (e) => {
   const newTask = document.createElement("p");
   newTask.classList.add("task");
   newTask.setAttribute("draggable", "true");
-  newTask.innerText = "New Task";
+  newTask.innerText = "";
   newTask.addEventListener("click", () => {
     editTask(newTask);
   })
@@ -38,4 +38,11 @@ function editTask(element) {
 function editTitle(element) {
   element.contentEditable = true;
   element.focus();
+}
+
+function confirmDelete(taskElement) {
+  const shouldDelete = confirm("Are you sure you want to delete this task?");
+  if (shouldDelete) {
+  taskElement.remove();
+  }
 }
