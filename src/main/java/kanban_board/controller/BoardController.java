@@ -53,10 +53,4 @@ public class BoardController {
         this.boardService.deleteBoardById(boardId);
         return "redirect:/";
     }
-    @GetMapping("/")
-    public String home() { return "home"; }
-    @GetMapping("/login")
-    public String login() { return "login"; }
-    @GetMapping("/signup")
-    public String signup() { return "signup"; }
 }
