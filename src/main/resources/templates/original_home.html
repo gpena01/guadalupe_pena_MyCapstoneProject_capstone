@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/style.css" />
-  <script src="drag.js" defer></script>
+  <script src="drag_and_drop.js" defer></script>
   <script src="todo.js" defer></script>
 
   <title>KanBan Home</title>
@@ -49,13 +49,13 @@
 
   <div class="lanes">
     <div class="swim-lane" id="todo-lane">
-      <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
-      <form id="todo-form">
-        <button type="submit" class="btn">&#65291;</button>
-      </form>
-      <div>
-        <button type="button" class="btn" onclick="confirmDelete()">&#8722;</button>
+      <div class="lane-header">
+        <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
+        <form id="todo-form">
+          <button type="submit" class="btn">&#65291;</button>
+        </form>
       </div>
+      <div class="task-list"></div>
     </div>
 
     <div class="swim-lane">

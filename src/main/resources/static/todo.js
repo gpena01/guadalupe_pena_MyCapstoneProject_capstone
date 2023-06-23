@@ -51,6 +51,11 @@ function editTask(element) {
   element.focus();
 }
 
+function editTitle(element) {
+  element.contentEditable = true;
+  element.focus();
+}
+
 function confirmDelete(taskElement) {
   const shouldDelete = confirm("Are you sure you want to delete this task?");
   if (shouldDelete) {

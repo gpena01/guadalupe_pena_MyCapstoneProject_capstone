@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/style.css" />
-  <script src="drag.js" defer></script>
+  <script src="drag_and_drop.js" defer></script>
   <script src="todo.js" defer></script>
 
   <title>KanBan Home</title>
@@ -58,20 +58,23 @@
       <div class="task-list"></div>
     </div>
 
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>
+<!-- Add swim-lane button -->
+  <button id="add-lane-btn" style="font-size: 28px;cxfdsz" class="btn">&#65291;</button>
 
-      <p class="task" draggable="true" onclick="editTask(this)">Walk dogs</p>
-      <p class="task" draggable="true" onclick="editTask(this)">Buy milk</p>
-    </div>
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>-->
 
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>
-    </div>
+<!--      <p class="task" draggable="true" onclick="editTask(this)">Walk dogs</p>-->
+<!--      <p class="task" draggable="true" onclick="editTask(this)">Buy milk</p>-->
+<!--    </div>-->
 
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>
-    </div>
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>-->
+<!--    </div>-->
+
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>-->
+<!--    </div>-->
   </div>
 
 </div>
