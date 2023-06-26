@@ -17,15 +17,14 @@
   <script src="js/drag_and_drop.js" defer></script>
   <script src="js/todo.js" defer></script>
 
-  <title>KanBan Home</title>
+  <title>Contact</title>
+
 </head>
-
 <body>
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
   <div class="container">
-    <h1 href="#" class="navbar-brand">GP's Kanban Board</h1>
+    <a href="#" class="navbar-brand">GP's Kanban Board</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,40 +47,38 @@
   </div>
 </nav>
 
-<!-- Default KanBan Board -->
-<div class="board container mt-3">
-  <div class="kanban-heading">
-    <h1 class="kanban-heading-text" onclick="editTitle(this)">Kanban Board</h1>
-  </div>
-
-  <div class="lanes">
-    <div class="swim-lane" id="todo-lane">
-      <div class="lane-header">
-        <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
-        <form id="todo-form">
-          <button type="submit" class="btn">&#65291;</button>
-        </form>
+<!-- Contact -->
+<section class="p-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md">
+        <h1 class="text-center mb-4">Contact Info</h1>
+        <ul class="list-group list-group-flush lead">
+          <li class="list-group-item">
+            <span class="fw-bold">Main Location:</span>
+            1300 Endust Street Sacramento, CA
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold">Enrollment Phone:</span>
+            800-555-5555
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold">Student Phone:</span>
+            800-333-3333
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold">Enrollment Email:</span>
+            enrollmenow@fsjavad.org
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold">Student Email:</span>
+            student@fsjavad.org
+          </li>
+        </ul>
       </div>
-      <div class="task-list"></div>
-    </div>
-
-<!-- Add swim-lane button -->
-  <button id="add-lane-btn" style="font-size: 28px;" class="btn">&#65291;</button>
-
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>
-    </div>
-
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>
-    </div>
-
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>
     </div>
   </div>
-
-</div>
+</section>
 
 <!-- Footer -->
 <footer class="p-5 bg-dark text-white text-center position-relative">
@@ -92,6 +89,5 @@
     </a>
   </div>
 </footer>
-
 </body>
 </html>

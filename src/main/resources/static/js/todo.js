@@ -1,6 +1,10 @@
 const form = document.getElementById("todo-form");
 const todoLane = document.getElementById("todo-lane");
-const taskList = todoLane.querySelector(".task-list");
+const taskList = todoLane.querySelector("task-list");
+
+// variables for adding/deleting column
+const board = document.querySelector("board");
+const addLaneButton = document.getElementById("add-lane-btn");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -10,7 +14,7 @@ form.addEventListener("submit", (e) => {
   newTask.setAttribute("draggable", "true");
   newTask.innerText = "";
 
-  const taskContent = document.createElement("span");
+  const taskContent = document.createElement("p");
   taskContent.innerText = "New Task";
   taskContent.addEventListener("click", () => {
     editTask(taskContent);
@@ -41,21 +45,25 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
+// edit column heading
 function editHeading(element) {
   element.contentEditable = true;
   element.focus();
 }
 
+// edit card content
 function editTask(element) {
   element.contentEditable = true;
   element.focus();
 }
 
+// edit kanban board title
 function editTitle(element) {
   element.contentEditable = true;
   element.focus();
 }
 
+// confirms deletion of card
 function confirmDelete(taskElement) {
   const shouldDelete = confirm("Are you sure you want to delete this task?");
   if (shouldDelete) {
