@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/drag_and_drop.js" defer></script>
   <script src="js/todo.js" defer></script>
+  <script src="js/add_remove_column.js" defer></script>
 
   <title>KanBan Home</title>
 </head>
@@ -32,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a th:href="@{home}" class="nav-link">Home</a>
+          <a th:href="@{/}" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
           <a th:href="@{about}" class="nav-link">About</a>
@@ -66,20 +67,22 @@
     </div>
 
 <!-- Add swim-lane button -->
-  <button id="add-lane-btn" style="font-size: 28px;" class="btn">&#65291;</button>
-
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>
+    <div id="add-lane-container">
+      <button type="button" id="add-lane-btn" style="font-size: 28px;" class="btn">&#65291;</button>
     </div>
 
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>
-    </div>
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>-->
+<!--    </div>-->
 
-    <div class="swim-lane">
-      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>
-    </div>
-  </div>
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>-->
+<!--    </div>-->
+
+<!--    <div class="swim-lane">-->
+<!--      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>-->
+<!--    </div>-->
+<!--  </div>-->
 
 </div>
 

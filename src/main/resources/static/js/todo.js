@@ -2,10 +2,6 @@ const form = document.getElementById("todo-form");
 const todoLane = document.getElementById("todo-lane");
 const taskList = todoLane.querySelector("task-list");
 
-// variables for adding/deleting column
-const board = document.querySelector("board");
-const addLaneButton = document.getElementById("add-lane-btn");
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
