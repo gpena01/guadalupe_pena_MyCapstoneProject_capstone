@@ -22,6 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests(requests -> requests
                         .mvcMatchers("/home").permitAll()
+                        .mvcMatchers("/contact").permitAll()
+                        .mvcMatchers("/about").permitAll()
                         .mvcMatchers("/login").permitAll()
                         .mvcMatchers("/signup").permitAll()
                         .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
@@ -69,6 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
+                .antMatchers("/**/*.js")
                 .antMatchers("/static/**")
                 .antMatchers("/**/*.css")
                 .antMatchers("/h2-console/**");

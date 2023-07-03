@@ -22,8 +22,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     @JsonIgnore
     private String password;
-//    private String firstName;
-//    private String lastName;
+    private String firstName;
+    private String lastName;
 
     // For the simplicity of the app, we give ADMIN role to all
     // newly signed-up users.
@@ -69,19 +69,19 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }
