@@ -52,8 +52,6 @@
 }
 
 .task {
-  display: flex;
-  flex-direction: column;
   position: relative;
   background-color: #fff;
   padding: 5px;
@@ -63,9 +61,10 @@
 }
 
 /*.delete-task-container {
-  align-self: flex-end;
-  top: 5px;
-  right: 5px;
+  position: relative;
+  float: right;
+  top: -10px;
+  right: -10px;
 }*/
 
 .task:hover {
@@ -78,7 +77,6 @@
 }
 
 .delete-task {
-  color: ;
   font-size: 14px;
   margin-left: 5px;
   cursor: pointer;

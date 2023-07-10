@@ -13,13 +13,14 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../static/css/kanban_board.css" th:href="@{css/kanban_board.css}"/>
   <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}"/>
-  <script src="../static/js/board_functions.js" th:src="@{js/board_functions.js}" defer></script>
+  <script src="../static/js/kanban_board.js" th:src="@{js/kanban_board.js}" defer></script>
 
   <title>KanBan Home</title>
 </head>
 
-<body>
+<body style="height:100vh;">
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
   <div class="container">
@@ -46,47 +47,18 @@
   </div>
 </nav>
 
-<!-- Default KanBan Board -->
-<div class="board container mt-3">
-  <div class="kanban-heading">
-    <h1 class="kanban-heading-text" onclick="editTitle(this)">Kanban Board</h1>
+<!-- KanBan Board -->
+<div id="board" class="board">
+  <div class="board-header">
+    <h1 id="board-title" contenteditable="true">Kanban Board</h1>
   </div>
-
-  <div class="lanes">
-    <div class="swim-lane" id="todo-lane">
-      <div class="lane-header">
-        <h3 class="columnName" onclick="editHeading(this)">TODO</h3>
-        <button type="button" class="delete-lane-btn btn" onclick="deleteLane(this.parentNode)"><i class="bi bi-dash-circle"></i></button>
-      </div>
-        <form id="todo-form">
-          <button type="submit" class="btn">&#65291; New Task</button>
-        </form>
-      <div class="task-list"></div>
-    </div>
-
-<!-- Add swim-lane button -->
-    <div id="add-lane-container">
-      <button type="button" id="add-lane-btn" style="font-size: 28px;" class="btn">&#65291;</button>
-    </div>
-
-<!--    <div class="swim-lane">-->
-<!--      <h3 class="columnName" onclick="editHeading(this)">IN PROGRESS</h3>-->
-<!--    </div>-->
-
-<!--    <div class="swim-lane">-->
-<!--      <h3 class="columnName" onclick="editHeading(this)">IN REVIEW</h3>-->
-<!--    </div>-->
-
-<!--    <div class="swim-lane">-->
-<!--      <h3 class="columnName" onclick="editHeading(this)">DONE</h3>-->
-<!--    </div>-->
-<!--  </div>-->
-
-</div>
+  <div id="columns" class="columns"></div>
+  <button id="add-column" class="add-column-btn">+ Add Column</button>
+  <button id="new-board" class="new-board-btn">New Board</button>
 </div>
 
 <!-- Footer -->
-<footer class="p-5 bg-dark text-white text-center position-relative">
+<footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
   <div class="container">
     <p class="lead">Copyright &copy; 2023 Full Stack Java Developer/Per Scholas</p>
     <a href="#" class="position-absolute bottom-0 end-0 p-5">

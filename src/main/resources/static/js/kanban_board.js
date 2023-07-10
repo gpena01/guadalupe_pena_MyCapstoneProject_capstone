@@ -94,22 +94,22 @@ function createTaskElement(task, taskIndex, columnIndex) {
   });
   taskElement.appendChild(taskContent);
 
-    const taskDetails = document.createElement("div");
-    taskDetails.classList.add("task-details");
+  const taskDetails = document.createElement("div");
+  taskDetails.classList.add("task-details");
 
-    // Add an empty line (line break) element
-    const lineBreak = document.createElement("br");
-    taskDetails.appendChild(lineBreak);
+  // Add an empty line (line break) element
+  const lineBreak = document.createElement("br");
+  taskDetails.appendChild(lineBreak);
 
-    // Create a span for the "Last Updated: " label
-    const lastUpdatedLabel = document.createElement("span");
-    lastUpdatedLabel.textContent = "Last Updated: ";
-    taskDetails.appendChild(lastUpdatedLabel);
+  // Create a span for the "Last Updated: " label
+  const lastUpdatedLabel = document.createElement("span");
+  lastUpdatedLabel.textContent = "Last Updated: ";
+  taskDetails.appendChild(lastUpdatedLabel);
 
-    // Create a span for the timestamp
-    const timestamp = document.createElement("span");
-    timestamp.textContent = formatDate(task.lastUpdated);
-    taskDetails.appendChild(timestamp);
+  // Create a span for the timestamp
+  const timestamp = document.createElement("span");
+  timestamp.textContent = formatDate(task.lastUpdated);
+  taskDetails.appendChild(timestamp);
 
   taskElement.appendChild(taskDetails);
 
