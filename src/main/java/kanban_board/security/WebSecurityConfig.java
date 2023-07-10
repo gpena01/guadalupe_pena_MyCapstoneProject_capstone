@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -26,10 +26,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .mvcMatchers("/about").permitAll()
                         .mvcMatchers("/login").permitAll()
                         .mvcMatchers("/signup").permitAll()
-                        .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
-                        .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                        .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                        .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/updateBoardTitle/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/createNewBoard/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/saveBoard/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/deleteBoard/**").hasAnyRole("ADMIN", "SUPERADMIN")
                         .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                         .anyRequest().authenticated())
                 .formLogin(login -> login
