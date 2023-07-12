@@ -34,12 +34,18 @@
           <a th:href="@{/}" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
+          <a th:href="@{my_boards}" class="nav-link">My Boards</a>
+        </li>
+        <li class="nav-item">
           <a th:href="@{about}" class="nav-link">About</a>
         </li>
         <li class="nav-item">
           <a th:href="@{contact}" class="nav-link">Contact Us</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" th:if="${isLoggedIn}">
+          <a th:href="@{logout}" class="nav-link">Sign Out</a>
+        </li>
+        <li class="nav-item" th:unless="${isLoggedIn}">
           <a th:href="@{login}" class="nav-link">Login</a>
         </li>
       </ul>
@@ -69,7 +75,7 @@
       <form action="/action_page.php">
         <input type="text" id="fullname" name="fullname" placeholder="Full Name">
         <input type="text" id="email" name="email" placeholder="Email">
-        <textarea id="subject" name="subject" placeholder="Comments or questions here" style="height:170px"></textarea>
+        <textarea id="subject" name="subject" placeholder="Questions or comments..." style="height:170px"></textarea>
         <input type="submit" value="Submit" class="btn btn-success btn-lg">
       </form>
     </div>
@@ -80,7 +86,13 @@
 <footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
   <div class="container">
     <p class="lead">Copyright &copy; 2023 Full Stack Java Developer/Per Scholas</p>
-    <a href="#" class="position-absolute bottom-0 end-0 p-5">
+    <div class="social-icons" style="font-size:24px">
+      <a href="#"><i class="bi bi-facebook text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-twitter text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-linkedin text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-instagram text-primary" style="margin-right: 10px;"></i></a>
+    </div>
+    <a href="#" class="position-absolute">
       <i class="bi bi-arrow-up-circle h1"></i>
     </a>
   </div>

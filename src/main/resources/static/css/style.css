@@ -88,11 +88,6 @@ body {
   text-decoration: underline;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-}
-
 /* Contact Us styling */
 /* Style inputs */
 input[type=text], select, textarea {
@@ -139,4 +134,10 @@ input[type=submit] {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   margin-bottom: 5px;
+}
+
+#footer {
+  position: ;
+  bottom: 0;
+  end: 0;
 }

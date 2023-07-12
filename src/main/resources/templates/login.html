@@ -29,7 +29,10 @@
     <div class="collapse navbar-collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a th:href="@{/}" class="nav-link">Home</a>
+          <a th:href="@{home}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a th:href="@{my_boards}" class="nav-link">My Boards</a>
         </li>
         <li class="nav-item">
           <a th:href="@{about}" class="nav-link">About</a>
@@ -37,7 +40,10 @@
         <li class="nav-item">
           <a th:href="@{contact}" class="nav-link">Contact Us</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" th:if="${isLoggedIn}">
+          <a th:href="@{logout}" class="nav-link">Sign Out</a>
+        </li>
+        <li class="nav-item" th:unless="${isLoggedIn}">
           <a th:href="@{login}" class="nav-link">Login</a>
         </li>
       </ul>
@@ -65,7 +71,13 @@
 <footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
   <div class="container">
     <p class="lead">Copyright &copy; 2023 Full Stack Java Developer/Per Scholas</p>
-    <a href="#" class="position-absolute bottom-0 end-0 p-5">
+    <div class="social-icons" style="font-size:24px">
+      <a href="#"><i class="bi bi-facebook text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-twitter text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-linkedin text-primary" style="margin-right: 10px;"></i></a>
+      <a href="#"><i class="bi bi-instagram text-primary" style="margin-right: 10px;"></i></a>
+    </div>
+    <a href="#" class="position-absolute">
       <i class="bi bi-arrow-up-circle h1"></i>
     </a>
   </div>
