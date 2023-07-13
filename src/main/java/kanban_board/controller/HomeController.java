@@ -8,13 +8,13 @@ import java.security.Principal;
 
 @Controller
 public class HomeController {
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home() { return "home"; }
     @GetMapping("/about")
     public String about() { return "about"; }
     @GetMapping("/contact")
     public String contact() { return "contact"; }
-    @GetMapping("/")
+    @GetMapping("/home")
     public String loggedIn(Model model) {
         // When user is logged in, all pages should have sign out button
         boolean isLoggedIn = true;

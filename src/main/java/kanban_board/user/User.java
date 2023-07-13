@@ -15,7 +15,7 @@ import java.util.Collections;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
-
+    // username is email
     @Id
     private String username;
 

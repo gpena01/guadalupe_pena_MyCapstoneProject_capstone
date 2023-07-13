@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit="no">
@@ -29,17 +29,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a th:href="@{/}" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
+        <li sec:authorize="isAuthenticated()" class="nav-item">
           <a th:href="@{my_boards}" class="nav-link">My Boards</a>
-        </li>
-        <li class="nav-item">
-          <a th:href="@{about}" class="nav-link">About</a>
-        </li>
-        <li class="nav-item">
-          <a th:href="@{contact}" class="nav-link">Contact Us</a>
         </li>
         <li class="nav-item" th:if="${isLoggedIn}">
           <a th:href="@{logout}" class="nav-link">Sign Out</a>
@@ -52,15 +43,7 @@
   </div>
 </nav>
 
-<!-- KanBan Board -->
-<div id="board" class="board">
-  <div class="board-header">
-    <h1 id="board-title" contenteditable="true">Kanban Board</h1>
-    <button id="add-column" class="add-column-btn">+ Add Column</button>
-    <button id="new-board" class="new-board-btn">New Board</button>
-  </div>
-  <div id="columns" class="columns"></div>
-</div>
+<h1>This is the homepage</h1>
 
 <!-- Footer -->
 <footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
