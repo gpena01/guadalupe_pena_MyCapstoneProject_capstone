@@ -29,8 +29,8 @@ public class HomeController {
         model.addAttribute("isLoggedIn", isLoggedIn);
         return "loggedin"; }
 
-    @GetMapping("/my_boards")
+    @GetMapping("/my_board")
     public String myBoards() {
         // "My Boards" tab appears when user is logged in
-        return "my_boards"; }
+        return "my_board"; }
 }

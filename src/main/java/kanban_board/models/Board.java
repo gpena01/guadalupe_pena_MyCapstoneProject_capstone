@@ -14,7 +14,7 @@ public class Board implements Serializable {
     private long boardId;
     private String boardTitle;
     // a collection to store the columns present in the board
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="username")
     private User user;
 

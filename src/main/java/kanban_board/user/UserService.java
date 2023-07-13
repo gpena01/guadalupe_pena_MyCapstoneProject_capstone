@@ -3,6 +3,7 @@ package kanban_board.user;
 import java.util.List;
 
 public interface UserService {
+    public void saveUser(User user);
 
     // Post
     public User createUser(User user);

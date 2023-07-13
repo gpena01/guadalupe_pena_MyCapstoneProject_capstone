@@ -44,8 +44,10 @@ public class BoardController {
         UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userPrincipal.getUsername();
         User user = userService.getUser(username);
+        List<Board> boards = user.getBoards();
         Board board = new Board("", user);
-        boardService.saveBoard(board);
+        boards.add(board);
+        userService.saveUser(user);
         return "redirect:/home";
     }
     @PostMapping("/saveBoard")

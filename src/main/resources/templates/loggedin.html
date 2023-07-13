@@ -30,9 +30,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
-        <li sec:authorize="isAuthenticated()" class="nav-item">
-          <a th:href="@{/listBoards}" class="nav-link">My Boards</a>
-        </li>
+<!--        <li sec:authorize="isAuthenticated()" class="nav-item">-->
+<!--          <a th:href="@{/listBoards}" class="nav-link">My Board</a>-->
+<!--        </li>-->
         <li class="nav-item" th:if="${isLoggedIn}">
           <a th:href="@{logout}" class="nav-link">Sign Out</a>
         </li>
@@ -45,14 +45,14 @@
 </nav>
 
 <div class="container">
+  <h1 class="text-center mt-5">My Projects</h1>
+  <a th:href="@{my_board}" class="btn btn-primary">Create Board</a>
   <div id="board" class="board" th:each="board:${listBoards}">
     <div class="board-header">
       <h1 id="board-title" contenteditable="true" th:text="${board.boardTitle}"></h1>
     </div>
   </div>
 </div>
-
-<button type="button" th:onclick="createBoard()" class="btn btn-primary">Create Board</button>
 
 <!-- Footer -->
 <footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
