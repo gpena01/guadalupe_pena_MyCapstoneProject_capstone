@@ -2,6 +2,8 @@ package kanban_board.service;
 
 import kanban_board.models.Board;
 import kanban_board.repository.BoardRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,9 @@ public class BoardService {
     }
 
     public List<Board> getAllBoards() {
-        return boardRepository.findAll();
+        UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userPrincipal.getUsername();
+        System.out.println(boardRepository.findByUserUsername(username));
+        return boardRepository.findByUserUsername(username);
     }
 }

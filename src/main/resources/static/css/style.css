@@ -88,6 +88,14 @@ body {
   text-decoration: underline;
 }
 
+nav.navbar {
+  position: ;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: all 300ms ease-in-out;
+}
+
 /* Contact Us styling */
 /* Style inputs */
 input[type=text], select, textarea {

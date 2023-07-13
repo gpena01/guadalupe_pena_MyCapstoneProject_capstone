@@ -230,3 +230,7 @@ newBoardBtn.addEventListener("click", () => {
 
 // Initial render
 renderBoard();
+
+function createBoard() {
+  fetch('/createNewBoard')
+}

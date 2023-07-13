@@ -1,5 +1,7 @@
 package kanban_board.models;
 
+import kanban_board.user.User;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -12,17 +14,18 @@ public class Board implements Serializable {
     private long boardId;
     private String boardTitle;
     // a collection to store the columns present in the board
-//    @OneToMany(cascade = CascadeType.ALL)
-//    private List<Column> columns;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="username")
+    private User user;
 
     // create constructor(s)
     public Board() {
     }
 
-    public Board(String boardTitle, List<BoardColumn> columns) {
+    public Board(String boardTitle, User user) {
         super();
         this.boardTitle = boardTitle;
-//        this.columns = columns;
+        this.user = user;
     }
 
     // create getters and setters
@@ -34,13 +37,13 @@ public class Board implements Serializable {
         this.boardTitle = boardTitle;
     }
 
-//    public List<Column> getColumns() {
-//        return columns;
-//    }
-//
-//    public void setColumns(List<Column> columns) {
-//        this.columns = columns;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public long getBoardId() {
         return boardId;

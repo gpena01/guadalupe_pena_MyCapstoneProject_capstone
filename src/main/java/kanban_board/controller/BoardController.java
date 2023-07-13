@@ -2,9 +2,13 @@ package kanban_board.controller;
 
 import kanban_board.models.Board;
 import kanban_board.service.BoardService;
+import kanban_board.user.User;
+import kanban_board.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,15 +19,17 @@ import java.util.List;
 // Controller class handles incoming http requests
 @Controller
 public class BoardController {
+    private final UserService userService;
     private final BoardService boardService;
     @Autowired
-    public BoardController(BoardService boardService) {
+    public BoardController(BoardService boardService, UserService userService) {
+        this.userService = userService;
         this.boardService = boardService;
     }
     @GetMapping("/listBoards")
     public String getAllBoards(Model model) {
-        model.addAttribute("listBoards", boardService.getAllBoards());
-        return "home";
+
+        return "loggedin";
     }
     @GetMapping("/updateBoardTitle/{boardId}")
     public String updateBoardTitle(@PathVariable long boardId, Model model) {
@@ -35,9 +41,12 @@ public class BoardController {
     @GetMapping("/createNewBoard")
     public String createNewBoard(Model model) {
         // create a new board
-        Board board = new Board();
-        model.addAttribute("board", board);
-        return "home";
+        UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = userPrincipal.getUsername();
+        User user = userService.getUser(username);
+        Board board = new Board("", user);
+        boardService.saveBoard(board);
+        return "redirect:/home";
     }
     @PostMapping("/saveBoard")
     public String saveBoard(@ModelAttribute("board") Board board, BindingResult bindingResult) {
