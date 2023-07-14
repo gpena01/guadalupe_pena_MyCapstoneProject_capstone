@@ -59,6 +59,14 @@ public class BoardController {
         boardService.saveBoard(board);
         return "redirect:/";
     }
+
+    @GetMapping("showBoardForUpdate/{boardId}")
+    public String showBoardForUpdate(@PathVariable(value = "id") long boardId, Model model) {
+        // get board from boardService
+        Board board = boardService.getBoardById(boardId);
+        model.addAttribute("board", board);
+        return "my_board";
+    }
     @GetMapping("/deleteBoard/{boardId}")
     public String deleteBoard(@PathVariable long boardId) {
         this.boardService.deleteBoardById(boardId);

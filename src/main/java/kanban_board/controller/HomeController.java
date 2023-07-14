@@ -21,7 +21,7 @@ public class HomeController {
     public String about() { return "about"; }
     @GetMapping("/contact")
     public String contact() { return "contact"; }
-    @GetMapping("/home")
+    @GetMapping("/loggedin")
     public String loggedIn(Model model) {
         // When user is logged in, all pages should have sign out button
         boolean isLoggedIn = true;
@@ -30,7 +30,7 @@ public class HomeController {
         return "loggedin"; }
 
     @GetMapping("/my_board")
-    public String myBoards() {
+    public String myBoards(Model model) {
         // "My Boards" tab appears when user is logged in
         return "my_board"; }
 }

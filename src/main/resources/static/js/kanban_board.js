@@ -83,6 +83,7 @@ function createColumnElement(column, columnIndex) {
 function createTaskElement(task, taskIndex, columnIndex) {
   const taskElement = document.createElement("div");
   taskElement.classList.add("task");
+  taskElement.style.backgroundColor = task.backgroundColor || getDefaultBackgroundColor(taskIndex);
 
   const taskContent = document.createElement("div");
   taskContent.textContent = task.content;
@@ -150,6 +151,12 @@ function createTaskElement(task, taskIndex, columnIndex) {
   });
 
   return taskElement;
+}
+
+function getDefaultBackgroundColor(taskIndex) {
+  const defaultColors = ["rgba(0, 206, 209, 0.8)", "rgba(255, 20, 147, 0.7)", "rgba(255, 165, 0, 0.7)"];
+  const colorIndex = taskIndex % defaultColors.length;
+  return defaultColors[colorIndex];
 }
 
 // Add a new column
@@ -230,7 +237,3 @@ newBoardBtn.addEventListener("click", () => {
 
 // Initial render
 renderBoard();
-
-function createBoard() {
-  fetch('/createNewBoard')
-}

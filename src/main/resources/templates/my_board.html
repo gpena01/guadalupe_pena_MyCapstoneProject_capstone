@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../static/css/kanban_board.css" th:href="@{css/kanban_board.css}"/>
   <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}">
   <script src="../static/js/kanban_board.js" th:src="@{js/kanban_board.js}" defer></script>
-  <title>My Boards</title>
+  <title>My Board</title>
 </head>
 
 <body style="height:100vh;">
@@ -30,7 +30,7 @@
     <div class="collapse navbar-collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a th:href="@{/home}" class="nav-link">Home</a>
+          <a th:href="@{/home}" class="nav-link">Back to Board List</a>
         </li>
         <li class="nav-item">
           <a th:href="@{logout}" class="nav-link">Sign Out</a>
@@ -41,15 +41,13 @@
 </nav>
 
 <!-- KanBan Board -->
-<div class="container" th:each="board:${listBoards}">
 <div id="board" class="board">
   <div class="board-header">
-    <h1 id="board-title" contenteditable="true" th:text="${board.boardTitle}"></h1>
+    <h1 id="board-title" contenteditable="true"></h1>
     <button id="add-column" class="add-column-btn">+ Add Column</button>
     <button id="new-board" class="new-board-btn">New Board</button>
   </div>
   <div id="columns" class="columns"></div>
-</div>
 </div>
 
 <!-- Footer -->

@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests(requests -> requests
                         .mvcMatchers("/").permitAll()
+                        .mvcMatchers("/home").permitAll()
                         .mvcMatchers("/contact").permitAll()
                         .mvcMatchers("/about").permitAll()
                         .mvcMatchers("/login").permitAll()
@@ -34,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home")
+                        .defaultSuccessUrl("/loggedin", true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login"));
