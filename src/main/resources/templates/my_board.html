@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../static/css/kanban_board.css" th:href="@{css/kanban_board.css}"/>
   <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}">
@@ -51,18 +51,18 @@
 </div>
 
 <!-- Footer -->
-<footer id="footer" class="container-fluid p-5 bg-dark text-white text-center">
+<footer id="footer" class="p-5 bg-dark text-white text-center position-relative">
   <div class="container">
     <p class="lead">Copyright &copy; 2023 Full Stack Java Developer/Per Scholas</p>
-    <div class="social-icons" style="font-size:24px">
-      <a href="#"><i class="bi bi-facebook text-primary" style="margin-right: 10px;"></i></a>
-      <a href="#"><i class="bi bi-twitter text-primary" style="margin-right: 10px;"></i></a>
-      <a href="#"><i class="bi bi-linkedin text-primary" style="margin-right: 10px;"></i></a>
-      <a href="#"><i class="bi bi-instagram text-primary" style="margin-right: 10px;"></i></a>
-    </div>
-    <a href="#" class="position-absolute">
+    <a href="#" class="position-absolute bottom-0 end-0 p-5">
       <i class="bi bi-arrow-up-circle h1"></i>
     </a>
+    <div class="social-icons">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+      <a href="#" class="fa fa-instagram"></a>
+    </div>
   </div>
 </footer>
 
