@@ -34,7 +34,6 @@ public class BoardService {
     public List<Board> getAllBoards() {
         UserDetails userPrincipal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = userPrincipal.getUsername();
-        System.out.println(boardRepository.findByUserUsername(username));
         return boardRepository.findByUserUsername(username);
     }
 }

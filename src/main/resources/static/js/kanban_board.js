@@ -67,7 +67,12 @@ function createColumnElement(column, columnIndex) {
   deleteLink.href = "#"; // Add your delete link destination here
   deleteLink.classList.add("menu-link");
   menuContainer.appendChild(deleteLink);
+
   // Add an event listener for the delete link if needed
+  deleteLink.addEventListener("click", () => {
+    deleteColumn(columnIndex);
+    menuContainer.classList.remove("show-menu"); // Close the menu container after deletion
+  });
 
   columnElement.appendChild(columnHeader);
   columnElement.appendChild(menuContainer);
@@ -86,19 +91,6 @@ function createColumnElement(column, columnIndex) {
       menuContainer.classList.remove("show-menu");
     }
   });
-
-//  const deleteColumnBtn = document.createElement("span");
-//  deleteColumnBtn.innerHTML = `
-//  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-//    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-//    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-//  </svg>
-//  `;
-//  deleteColumnBtn.classList.add("delete-column");
-//  deleteColumnBtn.addEventListener("click", () => {
-//    deleteColumn(columnIndex);
-//  });
-//  columnHeader.appendChild(deleteColumnBtn);
 
   columnElement.appendChild(columnHeader);
 
