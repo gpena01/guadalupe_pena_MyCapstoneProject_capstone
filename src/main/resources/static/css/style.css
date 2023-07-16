@@ -177,3 +177,54 @@ input[type=submit] {
   background: #125688;
   color: white;
 }
+
+/* Column menu */
+.column-ellipsis {
+  font-size: 20 px;
+  cursor: pointer;
+  float: right;
+  margin-left: 5px;
+}
+
+.menu-container {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+
+.show-menu {
+  display: block;
+}
+
+.menu-link {
+  display: block;
+  padding: 5px;
+  color: #333;
+  text-decoration: none;
+}
+
+.column {
+  position: relative;
+}
+
+.column-title {
+  font-size: 20px;
+  border: none;
+  padding-right: 30px; /* Adjust the value as needed */
+  max-width: calc(100% - 30px); /* Adjust the value based on the padding-right value */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  border-radius: 5px;
+}
+
+.ellipsis-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 5px; /* Adjust the vertical positioning as needed */
+  margin-right: 5px; /* Adjust the horizontal positioning as needed */
+}

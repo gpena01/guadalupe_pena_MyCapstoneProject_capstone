@@ -54,6 +54,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 5px;
+  color: black;
 }
 
 .task:hover {
@@ -75,10 +76,6 @@
   cursor: pointer;
 }
 
-.new-board-btn {
-  margin-top: 10px;
-}
-
 .new-board-btn:hover {
   cursor: pointer;
 }
@@ -91,4 +88,12 @@
 /* Add scrollbar for the column list */
 .board {
   overflow-x: auto;
+}
+
+#board-title.board-title {
+  text-align: center;
+  font-size: 36px;
+  border: none !important;
+  background: none;
+  outline: none !important;
 }

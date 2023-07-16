@@ -35,28 +35,70 @@ function createColumnElement(column, columnIndex) {
   const columnHeader = document.createElement("div");
   columnHeader.classList.add("column-header");
 
-  const columnTitle = document.createElement("h3");
+  const columnTitle = document.createElement("input");
   columnTitle.classList.add("column-title");
-  columnTitle.textContent = column.title;
-  columnTitle.contentEditable = true;
+  columnTitle.value = column.title;
   columnTitle.addEventListener("input", () => {
-    column.title = columnTitle.textContent;
+    column.title = columnTitle.value;
     updateLocalStorage();
   });
   columnHeader.appendChild(columnTitle);
 
-  const deleteColumnBtn = document.createElement("span");
-  deleteColumnBtn.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-  </svg>
-  `;
-  deleteColumnBtn.classList.add("delete-column");
-  deleteColumnBtn.addEventListener("click", () => {
-    deleteColumn(columnIndex);
+  const ellipsisIcon = document.createElement("i");
+  ellipsisIcon.classList.add("fa", "fa-ellipsis-v", "column-ellipsis");
+  columnHeader.appendChild(ellipsisIcon);
+
+  // Create the menu container
+  const menuContainer = document.createElement("div");
+  menuContainer.classList.add("menu-container");
+
+  // Create the edit link
+  const editLink = document.createElement("a");
+  editLink.innerHTML = `Edit <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+  <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/></svg>`;
+  editLink.href = "#"; // Add your edit link destination here
+  editLink.classList.add("menu-link");
+  menuContainer.appendChild(editLink);
+  // Add an event listener for the edit link if needed
+
+  // Create the delete link
+  const deleteLink = document.createElement("a");
+  deleteLink.innerHTML = 'Delete <i>&#x2715;</i>';
+  deleteLink.href = "#"; // Add your delete link destination here
+  deleteLink.classList.add("menu-link");
+  menuContainer.appendChild(deleteLink);
+  // Add an event listener for the delete link if needed
+
+  columnElement.appendChild(columnHeader);
+  columnElement.appendChild(menuContainer);
+
+  // Add event listener for ellipsis icon click
+  ellipsisIcon.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent click event from bubbling up to document
+
+  // Toggle the visibility of the menu container
+    menuContainer.classList.toggle("show-menu");
   });
-  columnHeader.appendChild(deleteColumnBtn);
+
+  // Close menu container when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (!columnHeader.contains(event.target)) {
+      menuContainer.classList.remove("show-menu");
+    }
+  });
+
+//  const deleteColumnBtn = document.createElement("span");
+//  deleteColumnBtn.innerHTML = `
+//  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+//    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+//    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+//  </svg>
+//  `;
+//  deleteColumnBtn.classList.add("delete-column");
+//  deleteColumnBtn.addEventListener("click", () => {
+//    deleteColumn(columnIndex);
+//  });
+//  columnHeader.appendChild(deleteColumnBtn);
 
   columnElement.appendChild(columnHeader);
 
