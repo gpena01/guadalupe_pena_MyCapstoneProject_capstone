@@ -228,3 +228,9 @@ input[type=submit] {
   margin-top: 5px; /* Adjust the vertical positioning as needed */
   margin-right: 5px; /* Adjust the horizontal positioning as needed */
 }
+
+.edit-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
