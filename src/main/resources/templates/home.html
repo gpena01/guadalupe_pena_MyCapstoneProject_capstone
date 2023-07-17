@@ -44,7 +44,28 @@
   </div>
 </nav>
 
-<h1>This is my homepage</h1>
+<div class="container p-5" id="home">
+  <h1>Welcome to Kanban Board!</h1>
+  <div class="column-container">
+  <div class="column">
+    <img src="../static/images/kanbanboard.jpg" th:src="@{images/kanbanboard.jpg}" alt="Kanban Board Image 1">
+    <p>Manage your tasks effectively with our Kanban board application. Visualize your workflow, track progress, and collaborate with your team.</p>
+  </div>
+  <div class="column">
+    <img src="../static/images/movetask.jpg" th:src="@{images/movetask.jpg}" alt="Kanban Board Image 2">
+    <p>Organize your tasks into different columns, move them across stages, and get a clear overview of your project's status.</p>
+  </div>
+  <div class="column">
+    <img src="../static/images/workflow.jpg" th:src="@{images/workflow.jpg}" alt="Kanban Board Image 3">
+    <p>Stay organized, prioritize tasks, and boost productivity with our intuitive Kanban board interface.</p>
+  </div>
+  </div>
+  <section class="cta-section">
+    <h2>Get Started Today!</h2>
+    <p>Sign up now and start managing your tasks with ease.</p>
+    <a th:href="@{signup}" class="cta-button">Sign Up</a>
+  </section>
+</div>
 
 <!-- Footer -->
 <footer id="footer" class="p-5 bg-dark text-white text-center position-relative">
